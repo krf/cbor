@@ -29,23 +29,23 @@
 #   define OUTPUT_COLOR     (16)
 
 #   if (OUTPUT==OUTPUT_XML)
-#       include "textui/XMLOutputter.h"
+#       include "embUnit/XMLOutputter.h"
 #       define OUTPUTTER   (XMLOutputter_outputter())
 #   elif (OUTPUT==OUTPUT_TEXT)
-#       include "textui/TextOutputter.h"
+#       include "embUnit/TextOutputter.h"
 #       define OUTPUTTER   (TextOutputter_outputter())
 #   elif (OUTPUT==OUTPUT_COMPILER)
-#       include "textui/CompilerOutputter.h"
+#       include "embUnit/CompilerOutputter.h"
 #       define OUTPUTTER   (CompilerOutputter_outputter())
 #   elif (OUTPUT==OUTPUT_COLORTEXT)
-#       include "textui/ColorTextOutputter.h"
+#       include "embUnit/ColorTextOutputter.h"
 #       define OUTPUTTER   (ColorTextOutputter_outputter())
 #   elif (OUTPUT==OUTPUT_COLOR)
-#       include "textui/ColorOutputter.h"
+#       include "embUnit/ColorOutputter.h"
 #       define OUTPUTTER   (ColorOutputter_outputter())
 #   endif
 
-#   include "textui/TextUIRunner.h"
+#   include "embUnit/TextUIRunner.h"
 
 #   define TESTS_START()   TextUIRunner_start()
 #   define TESTS_RUN(t)    TextUIRunner_runTest(t)

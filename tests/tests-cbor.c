@@ -791,7 +791,7 @@ static TestRef tests_cbor_all(void)
 #endif /* CBOR_NO_FLOAT */
     };
 
-    EMB_UNIT_TESTCALLER(CborTest, "CborTest", setUp, tearDown, fixtures);
+    EMB_UNIT_TESTCALLER(CborTest, setUp, tearDown, fixtures);
     return (TestRef)&CborTest;
 }
 
