@@ -15,7 +15,9 @@
 
 #include "embUnit.h"
 
-#include "bitarithm.h"
+#undef new_TestFixture
+#define new_TestFixture(test) { #test, test }
+
 #include "cbor.h"
 
 #include <float.h>
@@ -691,7 +693,7 @@ static void test_double_invalid(void)
 /**
  * Manual test for testing the cbor_stream_decode function
  */
-void test_stream_decode(void)
+static void test_stream_decode(void)
 {
     cbor_clear(&stream);
 
@@ -751,7 +753,7 @@ void test_stream_decode(void)
 /**
  * See examples from CBOR RFC (cf. Appendix A. Examples)
  */
-TestRef tests_cbor_all(void)
+static TestRef tests_cbor_all(void)
 {
     EMB_UNIT_TESTFIXTURES(fixtures) {
         new_TestFixture(test_int),
@@ -789,11 +791,11 @@ TestRef tests_cbor_all(void)
 #endif /* CBOR_NO_FLOAT */
     };
 
-    EMB_UNIT_TESTCALLER(CborTest, setUp, tearDown, fixtures);
+    EMB_UNIT_TESTCALLER(CborTest, "CborTest", setUp, tearDown, fixtures);
     return (TestRef)&CborTest;
 }
 
-void tests_cbor(void)
+int main()
 {
 #ifndef CBOR_NO_PRINT
     test_stream_decode();
