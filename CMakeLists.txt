@@ -51,7 +51,9 @@ if (NOT CBOR_NO_TESTS)
         SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/embUnit/
         DOWNLOAD_COMMAND ""
         PREFIX embUnit
-        #CONFIGURE_COMMAND ""
+        CONFIGURE_COMMAND ${CMAKE_COMMAND}
+            -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+            ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/embUnit/
         #BUILD_IN_SOURCE 1
         #BUILD_COMMAND make && cd textui/ && make
         INSTALL_COMMAND ""

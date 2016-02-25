@@ -801,5 +801,7 @@ int main()
     test_stream_decode();
 #endif /* CBOR_NO_PRINT */
 
+    TESTS_START();
     TESTS_RUN(tests_cbor_all());
+    TESTS_END();
 }
